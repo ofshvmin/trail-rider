@@ -4,7 +4,28 @@
 </head>
 <body>
   <nav>
+
+    
+    <a href="/rides/new" class=<%= title === 'Request a Ride' ? 'active' : ''  %>
+      >
+      REQUEST A RIDE
+    </a>
+    
+    
+    
     <% if (user) { %>
+      <a href="/flights/index" class=<%= title === 'All Flights' ? 'active' : ''  %>
+        >
+        ALL RIDES
+      </a>
+      
+      
+      <a href="/horses" class=<%= title === 'Add Meal' ? 'active' : ''  %>
+        >
+        MANAGE HORSES
+      </a>
+
+
       <a href="/auth/logout" class="right">
         <button type="submit">Logout</button>
       </a>

@@ -1,0 +1,38 @@
+<%- include("../partials/html-head") %>
+<%- include("../partials/nav") %>
+
+
+<main>
+  <h1>My Rides</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Number of Riders</th>
+        <th>Date</th>
+        <th>Details</th>
+        <th>Delete</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% rides.forEach(ride => { %>
+        <tr>
+          <td><%= ride.numberOfRiders %></td>
+          <td><%= ride.date %></a></td>
+          <td><a href="/rides/<%= ride._id %>"><button>details</i></button></a></td>
+          <td>
+            <form 
+            action="/rides/<%= ride._id %>?_method=DELETE" 
+            method="POST"
+            >
+            <button type="submit">X</button>
+          </form>
+        </td>
+      </tr>      
+      <% }) %>
+    </tbody>
+  </table>
+</main>
+
+
+<%- include("../partials/footer") %>
