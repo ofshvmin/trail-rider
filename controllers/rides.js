@@ -21,16 +21,31 @@ function index(req, res) {
 }
 
 function create(req, res) {
+  console.log(req.body);
+  req.body.requestor = req.user.profile._id
+  console.log(req.body);
+
   Ride.create(req.body)
   .then(ride => {
     res.redirect('/rides')
   })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/rides')
+  })
+}
 
-console.log(req.body);
+function show(req, res) {
+  Ride.findById(req.params.rideId)
+  .then(ride => {
+    res.render('rides/show', {
+      title: "Ride Detail",
+      ride
+    })
+  })
 }
 
 function deleteRide(req, res) {
-console.log("i wish to delete ", req.params);
   Ride.findByIdAndDelete(req.params.rideId)
   .then(ride => {
     res.redirect('/rides')
@@ -41,10 +56,53 @@ console.log("i wish to delete ", req.params);
   })
 }
 
+function createRider(req, res) {
+  //find the ride
+  Ride.findById(req.params.rideId)
+  .then(ride => {
+    ride.riders.push(req.body)
+    ride.save() 
+    .then(() => {
+      res.redirect(`/rides/${ride._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/rides')
+    })
+  })
+  //push a rider to the riders field
+  .catch(err => {
+    console.log(err)
+    res.redirect('/rides')
+  })
+}
+
+function deleteRider(req, res) {
+  Ride.findById(req.params.rideId)
+  .then(ride => {
+    ride.riders.remove(req.params.riderId)
+    ride.save()
+    .then(() => {
+      res.redirect(`/rides/${ride._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/rides')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/rides')
+  }) 
+}
+
+
 export {
   index,
   newRider as new,
   create,
- 
-  deleteRide as delete
+  show,
+  deleteRide as delete,
+  createRider,
+  deleteRider
 }
