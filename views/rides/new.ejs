@@ -2,10 +2,10 @@
 <link rel="stylesheet" href="/stylesheets/rides/forms.css">
 <%- include("../partials/nav") %>
 
-<main>
+<main id="new-ride">
   <h1><%= title %></h1>
   
-  <form action="/rides" id="new-form" method="POST">
+  <form action="/rides" id="new-ride" method="POST">
     <label>
       Number of Riders:
       <input type="number" name="numberOfRiders" id="rider-number-input" required="true" min="1" max="20">
@@ -15,28 +15,12 @@
 
     <label>
       Date:
-    <input type="datetime-local" name="date" id="" >
+    <input type="date" name="date" id="" >
     <!-- <input type="datetime-local" name="departs" id="departure-time-input" value="2023-04-16T13:42:35.520Z"> -->
     </label>
 
-    <button type="submit">Submit Request</button>
+    <button type="submit">Submit</button>
   </form>
-
-
-<h2>Rider Details</h2>
-<table>
-  <thead>
-    <th>Name</th>
-    <th>Height</th>
-    <th>Weight</th>
-    <th>Riding Experience</th>
-    <th>Delete</th>
-    
-  </thead>
-  <tbody>
-
-  </tbody>
-</table>
 
 </main>
 

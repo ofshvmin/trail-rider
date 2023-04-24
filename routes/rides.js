@@ -1,20 +1,21 @@
 import { Router } from 'express'
 import * as ridesCtrl from '../controllers/rides.js'
+import { isLoggedIn } from '../middleware/middleware.js'
 
 const router = Router()
 
 
 
 // GET localhost:3000/rides/
-router.get('/', ridesCtrl.index)
+router.get('/', isLoggedIn, ridesCtrl.index)
 
 
 
 // GET localhost:3000/rides/new
-router.get('/new', ridesCtrl.new)
+router.get('/new', isLoggedIn, ridesCtrl.new)
 
 // GET localhost:3000/rides/:rideId
-router.get('/:rideId', ridesCtrl.show)
+router.get('/:rideId', isLoggedIn, ridesCtrl.show)
 
 
 // POST localhost:3000/rides

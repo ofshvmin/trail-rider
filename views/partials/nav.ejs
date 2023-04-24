@@ -6,21 +6,27 @@
   <nav>
 
     
-    <a href="/rides/new" class=<%= title === 'Request a Ride' ? 'active' : ''  %>
-      >
-      REQUEST A RIDE
-    </a>
     
     
     
     <% if (user) { %>
-      <a href="/rides" class=<%= title === 'My Rides' ? 'active' : ''  %>
+      <a href="/rides/new" class=<%= title === 'Request a Ride' ? 'active' : ''  %>
+        >
+        REQUEST A RIDE
+      </a>
+
+      <a href="/my-rides" class=<%= title === 'My Rides' ? 'active' : ''  %>
+        >
+        ALL RIDES
+      </a>
+
+      <a href="/rides" class=<%= title === 'All Rides' ? 'active' : ''  %>
         >
         ALL RIDES
       </a>
       
       
-      <a href="/horses" class=<%= title === 'Manage Horses' ? 'active' : ''  %>
+      <a href="/admin/horses" class=<%= title === 'Manage Horses' ? 'active' : ''  %>
         >
         MANAGE HORSES
       </a>

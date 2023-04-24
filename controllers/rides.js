@@ -2,7 +2,7 @@ import { Ride } from '../models/ride.js'
 
 function newRider(req, res) {
   res.render('rides/new', {
-    title: 'Request a Ride'
+    title: 'Ride Request Form'
 
 //need to define ride and pass to new view
   })
@@ -37,6 +37,7 @@ function create(req, res) {
 
 function show(req, res) {
   Ride.findById(req.params.rideId)
+  .populate('requestor')
   .then(ride => {
     res.render('rides/show', {
       title: "Ride Detail",

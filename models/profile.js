@@ -5,7 +5,12 @@ const Schema = mongoose.Schema
 const profileSchema = new Schema({
   name: String,
   avatar: String,
-}, {
+  role: { 
+    type: String,
+    enum: ['Staff', 'Client'],
+    default: 'Client',
+    phone: String
+}}, {
   timestamps: true
 })
 

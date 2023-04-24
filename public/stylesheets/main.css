@@ -40,7 +40,7 @@ body > main h1:first-child {
   margin-bottom: 50px;
 }
 
-#meals {
+main > #new-ride {
   display: flex;
   align-items: center;
   justify-items: center;

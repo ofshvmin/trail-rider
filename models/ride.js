@@ -11,8 +11,11 @@ const riderSchema = Schema({
           enum: ['none', 'beginner', 'novice', 'intermediate', 'advanced']
             
             // 'none', 'some', 'basic w/t/c', "advanced - it's been a while", 'advanced - rides often'
-  },
-  })
+  }
+}, { 
+  timestamps: true,
+  
+})
 
 const rideSchema = new Schema({
   requestor: {
@@ -23,8 +26,9 @@ const rideSchema = new Schema({
   riders: [riderSchema],
   date: Date,
   time: Date,
-  status: String
-
+  status: String,
+}, {
+  timestamps: true
 })
 
 const Ride = mongoose.model('Ride', rideSchema)
