@@ -46,10 +46,23 @@ function edit(req, res) {
   })
 }
 
+function update(req, res) {
+  req.body.lessonHorse = !!req.body.lessonHorse
+  req.body.trailHorse = !!req.body.trailHorse
+  Horse.findByIdAndUpdate(req.params.horseId, req.body, { new: true })
+  .then(() => {
+    res.redirect('/horses')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/horses')
+  })
+}
 
 export {
   index,
   newHorse as new,
   create,
   edit,
+  update,
 }

@@ -17,6 +17,8 @@ router.get('/:horseId', horsesCtrl.edit)
 // POST localhost:3000/horses
 router.post('/', horsesCtrl.create)
 
+// PUT localhost:3000/horses/:horseId
+router.put('/:horseId', horsesCtrl.update)
 
 export {
   router

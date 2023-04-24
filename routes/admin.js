@@ -4,9 +4,11 @@ import * as adminCtrl from '../controllers/admin.js'
 const router = Router()
 
 
-// localhost:3000/admin
+// GET localhost:3000/admin
 router.get('/', adminCtrl.index) 
 
+// GET localhost:3000/admin/users
+router.get('/users', adminCtrl.getUsers) 
 
 
 

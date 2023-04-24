@@ -1,0 +1,61 @@
+<%- include("../partials/html-head") %>
+<%- include("../partials/nav") %>
+
+
+<main>
+  <h1>Site Administration</h1>
+
+
+  <a href="/horses">Horses</a>
+
+  <a href="/admin/users">Users</a>
+
+  <a href="/admin/schedule">Schedule</a>
+
+
+  name: String,
+  avatar: String,
+  role: { 
+    type: String,
+    enum: ['Staff', 'Client'],
+    default: 'Client',
+    phone: String
+}}, {
+  timestamps: true
+})
+
+
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>E-mail</th>
+        <th>Phone Number</th>
+        <th>Role</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(horse => { %>
+        <tr>
+          <td><%= user.profile.name %></td>
+          <td><%= user.email %></a></td>
+          <td><%= user.profile.phone %></td>
+          <td><%= user.profile.role %></td>
+          <td><a href="/admin/users/<%= profile._id %>"><button>Edit</button></a></td>
+          
+
+        </td>
+      </tr>      
+      <% }) %>
+    </tbody>
+  </table>
+</main>
+
+
+</main>
+
+
+<%- include("../partials/footer") %>
