@@ -8,10 +8,6 @@ const router = Router()
 router.get('/', adminCtrl.index) 
 
 
-// localhost:3000/admin/horses
-router.get('/horses', adminCtrl.horseIndex) 
-
-
 
 
 export {

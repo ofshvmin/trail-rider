@@ -1,0 +1,46 @@
+<%- include("../partials/html-head") %>
+<link rel="stylesheet" href="/stylesheets/rides/show.css">
+<%- include("../partials/nav") %>
+
+
+
+<main>
+      <h1>Horses</h1>
+  
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Lesson Horse</th>
+        <th>Trail Horse</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% horses.forEach(horse => { %>
+        <tr>
+          <td><%= horse.name %></td>
+          <td><%= horse.status %></a></td>
+          <td><%= horse.lessonHorse %></td>
+          <td><%= horse.trailHorse %></td>
+          <td><a href="/horses/<%= horse._id %>"><button>Edit</button></a></td>
+          
+          <td>
+            <form 
+            action="/horses/<%= horse._id %>?_method=DELETE" 
+            method="POST"
+            >
+            <button type="submit">X</button>
+          </form>
+        </td>
+      </tr>      
+      <% }) %>
+    </tbody>
+  </table>
+</main>
+
+
+<%- include("../partials/footer") %>

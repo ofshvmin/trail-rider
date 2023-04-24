@@ -7,16 +7,10 @@ function index(req, res) {
   res.render('admin/index', { title: 'Site Administration' })
 }
 
-function horseIndex(req, res) {
-  console.log('horse index');
-}
 
-function createHorse(req, res) {
-  console.log(req.body)
-}
 
 
 export {
   index,
-  horseIndex
+  
 }
