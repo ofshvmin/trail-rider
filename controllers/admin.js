@@ -8,18 +8,29 @@ function index(req, res) {
   res.render('admin/index', { title: 'Site Administration' })
 }
 
-function getUsers(req, res) {
+function getProfiles(req, res) {
   User.find({})
+  .populate('profile')
   .then(users => {
     res.render('admin/users', {
-      users
+      users,
+      title: 'User Profiles'
     })
   })
-
 }
 
+function editProfile(req, res) {
+  Profile.findById(req.params.profileId)
+  .then(profile => {
+    res.render('admin/edit-profile', {
+      profile,
+      title: ""
+    })
+  })
+}
 
 export {
   index,
-  getUsers,
+  getProfiles,
+  editProfile,
 }

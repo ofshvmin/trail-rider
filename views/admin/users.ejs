@@ -13,7 +13,7 @@
   <a href="/admin/schedule">Schedule</a>
 
 
-  name: String,
+  <!-- name: String,
   avatar: String,
   role: { 
     type: String,
@@ -22,7 +22,7 @@
     phone: String
 }}, {
   timestamps: true
-})
+}) -->
 
 
 
@@ -38,13 +38,13 @@
       </tr>
     </thead>
     <tbody>
-      <% users.forEach(horse => { %>
+      <% users.forEach(user => { %>
         <tr>
           <td><%= user.profile.name %></td>
           <td><%= user.email %></a></td>
           <td><%= user.profile.phone %></td>
           <td><%= user.profile.role %></td>
-          <td><a href="/admin/users/<%= profile._id %>"><button>Edit</button></a></td>
+          <td><a href="/admin/users/<%= user.profile._id %>"><button>Edit</button></a></td>
           
 
         </td>

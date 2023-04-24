@@ -1,0 +1,40 @@
+<%- include("../partials/html-head") %>
+<link rel="stylesheet" href="/stylesheets/rides/forms.css">
+<%- include("../partials/nav") %>
+
+<main>
+  <h1><%= title %></h1>
+  
+  <form 
+  action="/admin/users/<%= profile._id %>?_method=PUT" 
+  method="POST"
+  id="edit-form" 
+  >
+    
+    <label>
+      Name:
+    <input type="text" name="name" id="profile-input" value="">
+    </label>
+    
+    <label>
+      E-mail:
+    <input type="text" name="email" id="profile-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" >
+  </label>
+
+
+    <label>
+      Role:
+    <select name="role" id="user-select" required="true">
+      <option value="Client" <%= profile.role === 'Client' ? 'selected' : '' %>>Client</option>
+      <option value="Staff" <%= profile.role === 'Staff' ? 'selected' : '' %>>Staff</option>
+      <option value="Admin" <%= profile.role === 'Admin' ? 'selected' : '' %>>Admin</option>
+    </select>
+    </label>
+
+    <button type="submit">Update</button>
+  </form>
+
+  <a href="/horses">Go Back</a>
+
+</main>
+<%- include("../partials/footer") %>

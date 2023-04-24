@@ -8,9 +8,10 @@ const router = Router()
 router.get('/', adminCtrl.index) 
 
 // GET localhost:3000/admin/users
-router.get('/users', adminCtrl.getUsers) 
+router.get('/users', adminCtrl.getProfiles) 
 
-
+// GET localhost:3000/admin/users
+router.get('/users/:profileId', adminCtrl.editProfile)
 
 export {
   router
