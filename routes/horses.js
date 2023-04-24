@@ -4,9 +4,15 @@ import * as horsesCtrl from '../controllers/horses.js'
 const router = Router()
 
 
-// localhost:3000/horses
+// GET localhost:3000/horses
 router.get('/', horsesCtrl.index) 
 
+// GET localhost:3000/horses/new
+router.get('/new', horsesCtrl.new)
+
+
+// POST localhost:3000/horses
+router.post('/', horsesCtrl.create)
 
 
 export {
