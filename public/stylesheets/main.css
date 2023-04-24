@@ -102,10 +102,6 @@ nav > a.active {
   max-width: 80%;
 }
 
-.modal.active {
-
-}
-
 .modal-header {
   padding: 10px 15px;
   display: flex;

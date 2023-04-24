@@ -13,7 +13,7 @@ function index(req, res) {
   Ride.find({})
     .then(rides => {
       res.render('rides/index', {
-        title: "My Rides",
+        title: "All Rides",
         rides
       })
 
@@ -98,6 +98,36 @@ function deleteRider(req, res) {
 }
 
 
+function showMyRides(req, res) {
+console.log("show my rides");
+console.log(req.user);
+console.log(req.user._id,"!!!!!!!!!!!!!!!!");
+
+Ride.find({})
+.then(rides => {
+  rides.forEach((ride) => {
+  console.log(ride.requestor);
+  console.log(req.user.profile._id);
+  console.log(req.user.profile._id.equals(ride.requestor) ? 'yea - it matches' : 'nah - no match') 
+})
+})
+
+Ride.find({})
+  .then(rides => {
+    res.render('rides/my-rides', {
+      title: "My Rides",
+      rides: rides.filter((ride) => ride.requestor.equals(req.user.profile._id))
+    })
+  })
+  
+  .catch(err => {
+    console.log(err)
+    res.redirect('/rides')
+  }) 
+  
+}
+
+
 export {
   index,
   newRider as new,
@@ -105,5 +135,6 @@ export {
   show,
   deleteRide as delete,
   createRider,
-  deleteRider
+  deleteRider,
+  showMyRides
 }

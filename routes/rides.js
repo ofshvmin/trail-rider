@@ -10,6 +10,9 @@ const router = Router()
 router.get('/', isLoggedIn, ridesCtrl.index)
 
 
+// GET localhost:3000/rides/my-rides
+router.get('/my-rides', isLoggedIn, ridesCtrl.showMyRides)
+
 
 // GET localhost:3000/rides/new
 router.get('/new', isLoggedIn, ridesCtrl.new)
