@@ -9,7 +9,8 @@ const profileSchema = new Schema({
     type: String,
     enum: ['Staff', 'Client'],
     default: 'Client',
-    phone: String
+    // phone: String,
+    required: true,
 }}, {
   timestamps: true
 })

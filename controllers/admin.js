@@ -29,8 +29,20 @@ function editProfile(req, res) {
   })
 }
 
+function updateProfile(req, res) {
+  Profile.findByIdAndUpdate(req.params.profileId, req.body, { new: true })
+  .then(() => {
+    res.redirect('/admin/users')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/admin/users')
+  })
+}
+
 export {
   index,
   getProfiles,
   editProfile,
+  updateProfile,
 }
