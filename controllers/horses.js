@@ -22,15 +22,23 @@ function newHorse(req, res) {
   })
 }
 
-
 function create(req, res) {
-  // console.log(req.body)
   req.body.lessonHorse = !!req.body.lessonHorse
   req.body.trailHorse = !!req.body.trailHorse
-  // console.log(req.body);
   Horse.create(req.body)
   .then(() => {
     res.redirect('/horses')
+  })
+}
+
+function edit(req, res) {
+  console.log(req.params.horseId);
+  Horse.findById(req.params.horseId)
+  .then(horse => {
+    res.render('horses/edit', {
+      horse,
+      title: `Edit ${horse.name}`
+    })
   })
   .catch(err => {
     console.log(err)
@@ -43,4 +51,5 @@ export {
   index,
   newHorse as new,
   create,
+  edit,
 }

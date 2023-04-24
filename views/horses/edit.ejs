@@ -1,0 +1,43 @@
+<%- include("../partials/html-head") %>
+<link rel="stylesheet" href="/stylesheets/rides/forms.css">
+<%- include("../partials/nav") %>
+
+<main>
+  <h1><%= title %></h1>
+  
+  <form 
+  action="/horses/<%= horse._id %>?_method=PUT" 
+  method="POST"
+  id="edit-form" 
+  >
+    
+    <label>
+      Name:
+    <input type="text" name="name" id="horse-input" required="true" value="<%= horse.name %>">
+    </label>
+    
+    <label>
+      Status:
+    <select name="status" id="horse-select" required="true">
+      <option value="Active" <%= horse.status === 'Active' ? 'selected' : '' %>   >Active</option>
+      <option value="Lame" <%= horse.status === 'Lame' ? 'selected' : '' %>>Lame</option>
+      <option value="Retired" <%= horse.status === 'Retired' ? 'selected' : '' %>>Retired</option>
+    </select>
+    </label>
+
+    <label>
+      Lesson Horse:
+    <input type="checkbox" name="lessonHorse" id="horse-checkbox" <%= horse.lessonHorse ? 'checked' : '' %>>
+  </label>
+    <label>
+      Trail Horse:
+    <input type="checkbox" name="trailHorse" id="horse-checkbox" <%= horse.trailHorse ? 'checked' : '' %>>
+  </label>
+
+    <button type="submit">Update Horse</button>
+  </form>
+
+  <a href="/horses">Go Back</a>
+
+</main>
+<%- include("../partials/footer") %>
