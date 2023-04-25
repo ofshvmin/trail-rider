@@ -4,14 +4,16 @@ const Schema = mongoose.Schema
 
 const profileSchema = new Schema({
   name: String,
+  preferredEmail: String,
   avatar: String,
   role: { 
     type: String,
-    enum: ['Staff', 'Client'],
+    enum: ['Staff', 'Client', 'Admin'],
     default: 'Client',
     // phone: String,
     required: true,
-}}, {
+},
+}, {
   timestamps: true
 })
 

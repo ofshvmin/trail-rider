@@ -41,7 +41,7 @@
       <% users.forEach(user => { %>
         <tr>
           <td><%= user.profile.name %></td>
-          <td><%= user.email %></a></td>
+          <td><%= user.profile.preferredEmail %></a></td>
           <td><%= user.profile.phone %></td>
           <td><%= user.profile.role %></td>
           <td><a href="/admin/users/<%= user.profile._id %>"><button>Edit</button></a></td>

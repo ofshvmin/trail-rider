@@ -1,11 +1,18 @@
 import { Ride } from '../models/ride.js'
+import { User } from '../models/user.js';
 
-function newRider(req, res) {
-  res.render('rides/new', {
-    title: 'Ride Request Form'
 
-//need to define ride and pass to new view
+function newRide(req, res) {
+  User.findById(req.user._id)
+  .populate('profile')
+  .then(user => {
+    console.log(user);
+    res.render('rides/new', {
+      title: 'Ride Request Form',
+      user
+    })
   })
+
 }
 
 
@@ -130,7 +137,7 @@ Ride.find({})
 
 export {
   index,
-  newRider as new,
+  newRide as new,
   create,
   show,
   deleteRide as delete,
