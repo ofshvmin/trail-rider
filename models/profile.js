@@ -6,12 +6,14 @@ const profileSchema = new Schema({
   name: String,
   preferredEmail: String,
   avatar: String,
+  phone: {
+    type: String,
+    
+  },
   role: { 
     type: String,
     enum: ['Staff', 'Client', 'Admin'],
     default: 'Client',
-    // phone: String,
-    required: true,
 },
 }, {
   timestamps: true

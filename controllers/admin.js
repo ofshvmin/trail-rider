@@ -30,8 +30,11 @@ function editProfile(req, res) {
 }
 
 function updateProfile(req, res) {
+  console.log(req.body);
   Profile.findByIdAndUpdate(req.params.profileId, req.body, { new: true })
   .then(() => {
+    console.log(req.body);
+    console.log(typeof(req.body.phone));
     res.redirect('/admin/users')
   })
   .catch(err => {
