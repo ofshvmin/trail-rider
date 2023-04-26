@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 
 const riderSchema = Schema({
   name: String,
+  age: Number,
   height: String,
   weight: String,
   experience: {
@@ -27,6 +28,7 @@ const rideSchema = new Schema({
   date: Date,
   time: String,
   type: String,
+  young: String,
   status: String,
 }, {
   timestamps: true

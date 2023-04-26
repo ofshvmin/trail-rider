@@ -5,17 +5,17 @@
 <main id="new-ride">
   <h1><%= title %></h1>
   
-  <h3>Contact Details</h3>
+  <h3>Contact Information</h3>
 
   <form action="/admin/users/<%= user.profile._id %>?_method=PUT" 
     id="new-ride" 
     method="POST">
     <label>
-      Your Name:
+      Name of Requestor:
       <input type="text" name="name" id="ride-text-input" required="true" value="<%= user.profile.name %>">
       </label>
     <label>
-      E-mail:
+      Preferred E-mail:
       <input type="text" name="email" id="ride-text-input" required="true" value="<%= user.profile.preferredEmail %>">
       </label>
     <label>
@@ -26,7 +26,6 @@
       <button type="submit">Save</button>
    </form>
 
-   <h3>Ride Details</h3>
 
 </main>
 

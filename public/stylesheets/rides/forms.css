@@ -36,5 +36,10 @@ form > button {
   font-size: 16px;
 }
 
+form > #radio {
+  display: flex;
+  flex-direction: column;
+}
+
 
 select:invalid { color: gray; }

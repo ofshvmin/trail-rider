@@ -38,23 +38,24 @@ function new2(req, res) {
 
 function index(req, res) {
   Ride.find({})
-    .then(rides => {
-      res.render('rides/index', {
-        title: "All Rides",
-        rides
-      })
-
-    })
+  .then(rides => {
+    res.render('rides/index', {
+      title: "All Rides",
+      rides
+    })  
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
 }
 
 function create(req, res) {
-  
-  req.body.requestor = req.user.profile._id
-  
+  req.body.requestor = req.user.profile._id ///<-------- is this doing anything?
 
   Ride.create(req.body)
   .then(ride => {
-    res.redirect('/my-rides')
+    res.redirect(`/rides/${ride._id}`)
   })
   .catch(err => {
     console.log(err)
@@ -66,9 +67,15 @@ function show(req, res) {
   Ride.findById(req.params.rideId)
   .populate('requestor')
   .then(ride => {
+    const dt = ride.date.toISOString().slice(0,10)
+    console.log('date: ', dt);
+    
+    console.log("ride: ", ride);
     res.render('rides/show', {
       title: "Ride Detail",
-      ride
+      ride,
+      requestor: ride.requestor,
+      dt
     })
   })
 }
@@ -76,11 +83,11 @@ function show(req, res) {
 function deleteRide(req, res) {
   Ride.findByIdAndDelete(req.params.rideId)
   .then(ride => {
-    res.redirect('/my-rides')
+    res.redirect('/rides/my-rides')
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/my-rides')
+    res.redirect('/')
   })
 }
 
@@ -95,13 +102,13 @@ function createRider(req, res) {
     })
     .catch(err => {
       console.log(err)
-      res.redirect('/rides')
+      res.redirect('/rides/my-rides')
     })
   })
   //push a rider to the riders field
   .catch(err => {
     console.log(err)
-    res.redirect('/rides')
+    res.redirect('/rides/my-rides')
   })
 }
 
@@ -115,44 +122,29 @@ function deleteRider(req, res) {
     })
     .catch(err => {
       console.log(err)
-      res.redirect('/rides')
+      res.redirect('/rides/my-rides')
     })
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/rides')
+    res.redirect('/rides/my-rides')
   }) 
 }
 
 
 function showMyRides(req, res) {
-// console.log("show my rides");
-// console.log(req.user);
-// console.log(req.user._id,"!!!!!!!!!!!!!!!!");
-
-// Ride.find({})
-// .then(rides => {
-//   rides.forEach((ride) => {
-//   console.log(ride.requestor);
-//   console.log(req.user.profile._id);
-//   console.log(req.user.profile._id.equals(ride.requestor) ? 'yea - it matches' : 'nah - no match') 
-// })
-// })
-
-Ride.find({})
-.then(rides => {
-    res.render('rides/my-rides', {
-      title: "My Rides",
-      rides: rides.filter((ride) => ride.requestor.equals(req.user.profile._id)),
-      requestor: req.user.profile.name
-    })
-  })
-  
+  Ride.find({})
+  .then(rides => {
+      res.render('rides/my-rides', {
+        title: "My Rides",
+        rides: rides.filter((ride) => ride.requestor.equals(req.user.profile._id)),
+        requestor: req.user.profile.name
+      })
+    }) 
   .catch(err => {
     console.log(err)
     res.redirect('/')
   }) 
-  
 }
 
 
