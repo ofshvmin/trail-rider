@@ -25,7 +25,8 @@ const rideSchema = new Schema({
   numberOfRiders: Number,
   riders: [riderSchema],
   date: Date,
-  time: Date,
+  time: String,
+  type: String,
   status: String,
 }, {
   timestamps: true

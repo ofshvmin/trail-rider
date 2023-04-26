@@ -7,13 +7,33 @@ function newRide(req, res) {
   .populate('profile')
   .then(user => {
     console.log(user);
-    res.render('rides/new', {
+    res.render('rides/new-1', {
       title: 'Ride Request Form',
       user
     })
   })
-
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
 }
+
+function new2(req, res) {
+  User.findById(req.user._id)
+  .populate('profile')
+  .then(user => {
+    console.log(user);
+    res.render('rides/new-2', {
+      title: 'Ride Request Form',
+      user
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 
 
 function index(req, res) {
@@ -34,11 +54,11 @@ function create(req, res) {
 
   Ride.create(req.body)
   .then(ride => {
-    res.redirect('/rides')
+    res.redirect('/my-rides')
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/rides')
+    res.redirect('/')
   })
 }
 
@@ -56,11 +76,11 @@ function show(req, res) {
 function deleteRide(req, res) {
   Ride.findByIdAndDelete(req.params.rideId)
   .then(ride => {
-    res.redirect('/rides')
+    res.redirect('/my-rides')
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/rides')
+    res.redirect('/my-rides')
   })
 }
 
@@ -106,18 +126,18 @@ function deleteRider(req, res) {
 
 
 function showMyRides(req, res) {
-console.log("show my rides");
-console.log(req.user);
-console.log(req.user._id,"!!!!!!!!!!!!!!!!");
+// console.log("show my rides");
+// console.log(req.user);
+// console.log(req.user._id,"!!!!!!!!!!!!!!!!");
 
-Ride.find({})
-.then(rides => {
-  rides.forEach((ride) => {
-  console.log(ride.requestor);
-  console.log(req.user.profile._id);
-  console.log(req.user.profile._id.equals(ride.requestor) ? 'yea - it matches' : 'nah - no match') 
-})
-})
+// Ride.find({})
+// .then(rides => {
+//   rides.forEach((ride) => {
+//   console.log(ride.requestor);
+//   console.log(req.user.profile._id);
+//   console.log(req.user.profile._id.equals(ride.requestor) ? 'yea - it matches' : 'nah - no match') 
+// })
+// })
 
 Ride.find({})
   .then(rides => {
@@ -129,7 +149,7 @@ Ride.find({})
   
   .catch(err => {
     console.log(err)
-    res.redirect('/rides')
+    res.redirect('/')
   }) 
   
 }
@@ -138,6 +158,7 @@ Ride.find({})
 export {
   index,
   newRide as new,
+  new2,
   create,
   show,
   deleteRide as delete,

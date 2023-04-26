@@ -1,47 +1,117 @@
 <%- include("../partials/html-head") %>
 <link rel="stylesheet" href="/stylesheets/rides/forms.css">
+<style>
+
+</style>
+
 <%- include("../partials/nav") %>
 
 <main id="new-ride">
   <h1><%= title %></h1>
-  
-  <form action="/admin/users/<%= profile._id %>?_method=PUT" 
-    id="new-ride" 
-    method="POST">
-    <label>
-      Your Name:
-      <input type="text" name="name" id="ride-text-input" required="true" value="<%= user.profile.name %>">
-      </label>
-    <label>
-      E-mail:
-      <input type="text" name="email" id="ride-text-input" required="true" value="<%= user.profile.email %>">
-      </label>
-    <label>
-      Phone Number:
-      <input type="tel" name="phone" id="ride-text-input" required="true" value="<%= user.profile.phone %>" placeholder="###-###-####">
-      </label>
-      
-      <button type="submit">Save</button>
-   </form>
-   <form action="">
     
-    
-      <label>
-      Number of Riders:
-      <input type="number" name="numberOfRiders" id="rider-number-input" required="true" min="1" max="20">
-      </label>
+  <h3>Contact Information</h3>
 
-
-
-    <label>
-      Date:
-    <input type="date" name="date" id="" >
-    <!-- <input type="datetime-local" name="departs" id="departure-time-input" value="2023-04-16T13:42:35.520Z"> -->
+<form action="/rides/new" id="new-ride" >
+  <label>
+    Name of Requestor:
+    <input type="text" name="name" id="ride-text-input" required="true" value="<%= user.profile.name %>" disabled="true">
     </label>
+  <label>
+    E-mail:
+    <input type="text" name="email" id="ride-text-input" required="true" value="<%= user.profile.preferredEmail %>" disabled="true">
+    </label>
+  <label>
+    Phone Number:
+    <input type="tel" name="phone" id="ride-text-input" required="true" value="<%= user.profile.phone %>" placeholder="###-###-####" disabled="true">
+  </label>
+  
+  <button type="submit">Edit</button>
+</form>
 
-    <button type="submit">Submit</button>
-  </form>
+<h3>Ride Details</h3>
 
+
+<form action="/rides" id="new-form" method="POST">
+  <label>
+    Date:
+    <input type="date" name="date" id="" >
+  </label>
+  <label>
+    Time:
+  <select name="time" id="">
+    <option value="">Morning (10am - 1pm)</option>
+    <option value="">Afternoon (1pm - Sunset)</option>
+    <option value="">Any Time of Day</option>
+  
+  </select>
+  </label>
+  <label>
+    What type of trail ride are you looking for?
+    <select name="type" id="">
+      <option value="scenic">Scenic Trail Ride(Beginner-friendly)</option>
+      <option value="adventure">Adventure Trail Ride (Novice and Intermediate)</option>
+      <option value="vineyard">Vineyard Trail Ride (on specific dates)</option>
+      <option value="moonlight">Moonlight Trail Ride (on specific dates)</option>
+      <option value="bachelorette">Bachelor or Bachelorette Party</option>
+      <option value="equitrek">Equitreks and Overnights (Novice - Master Level Riders)</option> 
+    </select>
+  </label> <br>
+
+  <label>
+    Number of Riders:
+  <select name="numberOfRiders" id="rider-number-select" required="true" placeholder="Choose">
+    <option value="" disabled selected="true" >Choose</option>
+    <option value="1">1 rider</option>
+    <option value="2">2 riders</option>
+    <option value="3">3 riders</option>
+    <option value="4">4 riders</option>
+    <option value="5">5 riders</option>
+    <option value="6">6 riders</option>
+    <option value="7">7 riders</option>
+    <option value="8">8 riders</option>
+    <option value="9">9 riders</option>
+    <option value="10">10 riders</option>
+    <option value="11">11 riders</option>
+    <option value="12">12 riders</option>
+  </select>
+  </label><br>
+
+  <button type="submit">Submit</button>
+  
+</form>
+<div>
+  <p>Are ANY riders inder the age of 10?</p>
+  
+  <label>
+    <input type="radio" name="young" value="no">
+    No. All riders are over the age of 10. 
+  </label><br>
+  
+  <label>
+    <input type="radio" name="young" value="separate trail">
+    We have riders 8-9 and would like to book a Trail Experience Lession of them while the adults go out on a 1 hour trail ride.
+  </label><br>
+  
+  <label>
+    <input type="radio" name="young" value="kids only">
+    We have riders ages 8-9 and would like to book a Trail Experience Lesson for just them.
+  </label><br>
+  
+  <label>
+    <input type="radio" name="young" value="together">
+    We have riders ages 8-9 and would like to book a Trail Experience Lesson for our entire party
+  </label><br>
+  
+  <label>
+    <input type="radio" name="young" value="separate lesson">
+    Yes. We have a rider who is under the age of 8 who would like to take a Horse Experience Lesson while the rest of our party goes on trail. (NOTE: An adult must stay back with the youth under the age of 8)
+  </label><br>
+  
+  
+</div>
+    
+  
+  
 </main>
 
 <%- include("../partials/footer") %>

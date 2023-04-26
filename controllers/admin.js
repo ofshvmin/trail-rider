@@ -24,27 +24,25 @@ function editProfile(req, res) {
   .then(profile => {
     res.render('admin/edit-profile', {
       profile,
-      title: ""
+      title: "Edit User Profile"
     })
   })
 }
 
 function updateProfile(req, res) {
+  for(let key in req.body) {
+    if(req.body[key] === '') delete req.body[key]
+  }
   Profile.findById(req.params.profileId)
   .then(profile => {
-    console.log('REQ.BODY: ', req.params.profileId);
-    console.log('REQ.USER: ', req.user.profile._id);
-    console.log('USER ROLE: ', req.user.profile.role);
-
-
-
-
+    // console.log('REQ.BODY: ', req.params.profileId);
+    // console.log('REQ.USER: ', req.user.profile._id);
+    // console.log('USER ROLE: ', req.user.profile.role);
 
     if(profile._id.equals(req.user.profile._id)) {
-      console.log('true')
       profile.updateOne(req.body) 
       .then(() => {
-        res.redirect('/rides/new')
+        res.redirect('/rides/new-2')
       })
       .catch(err => {
         console.log(err)

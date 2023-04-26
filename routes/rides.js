@@ -17,6 +17,9 @@ router.get('/my-rides', isLoggedIn, ridesCtrl.showMyRides)
 // GET localhost:3000/rides/new
 router.get('/new', isLoggedIn, ridesCtrl.new)
 
+// GET localhost:3000/rides/new-2
+router.get('/new-2', isLoggedIn, ridesCtrl.new2)
+
 // GET localhost:3000/rides/:rideId
 router.get('/:rideId', isLoggedIn, ridesCtrl.show)
 

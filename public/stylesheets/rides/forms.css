@@ -37,3 +37,4 @@ form > button {
 }
 
 
+select:invalid { color: gray; }
