@@ -48,9 +48,9 @@ function index(req, res) {
 }
 
 function create(req, res) {
-  console.log(req.body);
+  
   req.body.requestor = req.user.profile._id
-  console.log(req.body);
+  
 
   Ride.create(req.body)
   .then(ride => {
@@ -140,10 +140,11 @@ function showMyRides(req, res) {
 // })
 
 Ride.find({})
-  .then(rides => {
+.then(rides => {
     res.render('rides/my-rides', {
       title: "My Rides",
-      rides: rides.filter((ride) => ride.requestor.equals(req.user.profile._id))
+      rides: rides.filter((ride) => ride.requestor.equals(req.user.profile._id)),
+      requestor: req.user.profile.name
     })
   })
   
