@@ -27,15 +27,13 @@ router.get('/:rideId', isLoggedIn, ridesCtrl.show)
 // POST localhost:3000/rides
 router.post('/', ridesCtrl.create)
 
+// POST localhost:3000/rides/:rideId/riders
+router.post('/:rideId/riders', ridesCtrl.createRider)
 
 // PUT localhost:3000/rides/:rideId
 router.put('/:rideId', isLoggedIn, ridesCtrl.update)
 
-// POST localhost:3000/rides/:rideId/riders
-router.post('/:rideId/riders', ridesCtrl.createRider)
-
-
-// GET localhost:3000/rides/:rideId
+// DELETE localhost:3000/rides/:rideId
 router.delete('/:rideId', ridesCtrl.delete)
 
 

@@ -52,7 +52,6 @@ function index(req, res) {
 
 function create(req, res) {
   req.body.requestor = req.user.profile._id ///<-------- is this doing anything?
-
   Ride.create(req.body)
   .then(ride => {
     res.redirect(`/rides/${ride._id}`)
@@ -169,7 +168,8 @@ function showMyRides(req, res) {
       res.render('rides/my-rides', {
         title: "My Rides",
         rides: rides.filter((ride) => ride.requestor.equals(req.user.profile._id)),
-        requestor: req.user.profile.name
+        requestor: req.user.profile.name,
+        
       })
     }) 
   .catch(err => {

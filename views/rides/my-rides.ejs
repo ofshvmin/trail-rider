@@ -24,7 +24,8 @@
       <% rides.forEach(ride => { %>
         <tr>
           <td><%= ride.numberOfRiders %></td>
-          <td><%= ride.date %></a></td>
+          <td> <input type="date" value="<%= ride.date.toISOString().slice(0, 10) %>" disabled>
+            </td>
           <td><a href="/rides/<%= ride._id %>"><button>details</button></a></td>
           <td>
             <form 

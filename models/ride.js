@@ -29,7 +29,11 @@ const rideSchema = new Schema({
   time: String,
   type: String,
   young: String,
-  status: String,
+  status: {
+    type: String,
+    enum: ['preliminary', 'submitted', 'repair', 'scheduled', 'confirmed', 'canceled', 'completed'],
+    default: 'preliminary'
+  },
 }, {
   timestamps: true
 })
