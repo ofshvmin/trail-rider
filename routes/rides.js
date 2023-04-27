@@ -27,6 +27,10 @@ router.get('/:rideId', isLoggedIn, ridesCtrl.show)
 // POST localhost:3000/rides
 router.post('/', ridesCtrl.create)
 
+
+// PUT localhost:3000/rides/:rideId
+router.put('/:rideId', isLoggedIn, ridesCtrl.update)
+
 // POST localhost:3000/rides/:rideId/riders
 router.post('/:rideId/riders', ridesCtrl.createRider)
 

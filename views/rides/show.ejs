@@ -27,16 +27,15 @@
 
 <h3>Ride Details</h3>
 
-
-<form action="/rides" id="new-form" method="POST">
+<form action="/rides/<%= ride._id %>?_method=PUT" id="update-form" method="POST">
   <label>
     Date:
-    <input type="date" name="date" id="" value="<%= dt %>" disabled>
+    <input type="date" name="date" id="" value="<%= dt %>">
   </label>
   
   <label>
     Time:
-  <select name="time" id="" disabled>
+  <select name="time" id="">
     <option value="morning" <%= ride.time === "morning" ? "selected" : "" %>>Morning (10am - 1pm)</option>
     <option value="afternoon" <%= ride.time === "afternoon" ? "selected" : "" %>>Afternoon (1pm - Sunset)</option>
     <option value="anytime" <%= ride.time === "anytime" ? "selected" : "" %>>Any Time of Day</option>
@@ -46,7 +45,7 @@
   </label>
   <label>
     What type of trail ride are you looking for?
-    <select name="type" id="" disabled>
+    <select name="type" id="">
       <option value="scenic" <%= ride.type === "scenic" ? "selected" : "" %>>Scenic Trail Ride(Beginner-friendly)</option>
       <option value="adventure" <%= ride.type === "adventure" ? "selected" : "" %>>Adventure Trail Ride (Novice and Intermediate)</option>
       <option value="vineyard" <%= ride.type === "vineyard" ? "selected" : "" %>>Vineyard Trail Ride (on specific dates)</option>
@@ -74,41 +73,41 @@
     <option value="12" <%= ride.numberOfRiders === 12 ? "selected" : "" %>>12 riders</option>
   </select>
   </label><br>
+  
+  <div>
+    <p>Are ANY riders inder the age of 10?</p>
+    
+    <fieldset>
+    <label>
+      <input type="radio" name="young" value="no" <%= ride.young === "no" ? "checked" : "" %>>
+      No. All riders are over the age of 10. 
+    </label><br>
+    
+    <label>
+      <input type="radio" name="young" value="separate trail" <%= ride.young === "no" ? "checked" : "" %>>
+      We have riders 8-9 and would like to book a Trail Experience Lesson for them while the adults go out on a 1 hour trail ride.
+    </label><br>
+    
+    <label>
+      <input type="radio" name="young" value="kids only" <%= ride.young === "no" ? "checked" : "" %>>
+      We have riders ages 8-9 and would like to book a Trail Experience Lesson for just them.
+    </label><br>
+    
+    <label>
+      <input type="radio" name="young" value="together" <%= ride.young === "no" ? "checked" : "" %>>
+      We have riders ages 8-9 and would like to book a Trail Experience Lesson for our entire party.
+    </label><br>
+    
+    <label>
+      <input type="radio" name="young" value="separate lesson" <%= ride.young === "no" ? "checked" : "" %>>
+      Yes. We have a rider who is under the age of 8 who would like to take a Horse Experience Lesson while the rest of our party goes on trail. (NOTE: An adult must stay back with the youth under the age of 8)
+    </label><br>
+  </fieldset>
+  </div>
 
-  <button type="submit">Submit</button>
+  <button type="submit">Update Ride Details</button>
   
 </form>
-
-<div>
-  <p>Are ANY riders inder the age of 10?</p>
-  
-  <fieldset disabled>
-  <label>
-    <input type="radio" name="young" value="no" <%= ride.young === "no" ? "checked" : "" %>>
-    No. All riders are over the age of 10. 
-  </label><br>
-  
-  <label>
-    <input type="radio" name="young" value="separate trail" <%= ride.young === "no" ? "checked" : "" %>>
-    We have riders 8-9 and would like to book a Trail Experience Lesson for them while the adults go out on a 1 hour trail ride.
-  </label><br>
-  
-  <label>
-    <input type="radio" name="young" value="kids only" <%= ride.young === "no" ? "checked" : "" %>>
-    We have riders ages 8-9 and would like to book a Trail Experience Lesson for just them.
-  </label><br>
-  
-  <label>
-    <input type="radio" name="young" value="together" <%= ride.young === "no" ? "checked" : "" %>>
-    We have riders ages 8-9 and would like to book a Trail Experience Lesson for our entire party.
-  </label><br>
-  
-  <label>
-    <input type="radio" name="young" value="separate lesson" <%= ride.young === "no" ? "checked" : "" %>>
-    Yes. We have a rider who is under the age of 8 who would like to take a Horse Experience Lesson while the rest of our party goes on trail. (NOTE: An adult must stay back with the youth under the age of 8)
-  </label><br>
-</fieldset>
-</div>
    
 <h2>Rider Details</h2>
 

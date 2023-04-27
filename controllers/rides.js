@@ -80,6 +80,37 @@ function show(req, res) {
   })
 }
 
+function update(req, res) {
+  for(let key in req.body) {
+    if(req.body[key] === '') delete req.body[key]
+  }
+  Ride.findById(req.params.rideId)
+  .then(ride => {
+    if(ride.requestor._id.equals(req.user.profile._id)) {
+      ride.updateOne(req.body) 
+      .then(() => {
+        res.redirect(`/rides/${ride._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/')
+      })
+    }
+})
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })  
+}
+
+
+
+
+  //   // console.log('REQ.BODY: ', req.params.profileId);
+  //   // console.log('REQ.USER: ', req.user.profile._id);
+  //   // console.log('USER ROLE: ', req.user.profile.role);
+
+
 function deleteRide(req, res) {
   Ride.findByIdAndDelete(req.params.rideId)
   .then(ride => {
@@ -154,6 +185,7 @@ export {
   new2,
   create,
   show,
+  update,
   deleteRide as delete,
   createRider,
   deleteRider,
