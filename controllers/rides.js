@@ -178,6 +178,24 @@ function showMyRides(req, res) {
   }) 
 }
 
+function cancel(req, res) {
+  Ride.findById(req.params.rideId)
+  .then(ride => {
+    ride.status = 'canceled'
+    ride.save()
+    .then(() => {
+      res.redirect('/rides/my-rides')
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
 
 export {
   index,
@@ -189,5 +207,6 @@ export {
   deleteRide as delete,
   createRider,
   deleteRider,
-  showMyRides
+  showMyRides,
+  cancel
 }

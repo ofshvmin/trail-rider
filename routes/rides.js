@@ -24,6 +24,10 @@ router.get('/new-2', isLoggedIn, ridesCtrl.new2)
 router.get('/:rideId', isLoggedIn, ridesCtrl.show)
 
 
+//PATCH localhost:3000/rides/:rideId/cancel
+router.patch('/:rideId/cancel', isLoggedIn, ridesCtrl.cancel)
+
+
 // POST localhost:3000/rides
 router.post('/', ridesCtrl.create)
 
