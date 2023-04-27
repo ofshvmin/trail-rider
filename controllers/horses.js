@@ -2,12 +2,11 @@ import { Horse } from "../models/horse.js"
 
 
 function index(req, res) {
-  console.log('horse index');
   Horse.find({})
   .then(horses => {
     res.render('horses/index', {
       title: 'Horses',
-      horses
+      horses: horses.sort((a, b) => a.barnName - b.barnName)
     })
   })
   .catch(err => {
@@ -59,10 +58,26 @@ function update(req, res) {
   })
 }
 
+function deleteHorse(req, res) {
+  Horse.findByIdAndDelete(req.params.horseId)
+  .then(() => {
+    res.redirect('horses')
+    })
+  
+  .catch(err => {
+    console.log(err)
+    res.redirect('/rides/my-rides')
+  }) 
+}
+
+
+
+
 export {
   index,
   newHorse as new,
   create,
   edit,
   update,
+  deleteHorse as delete
 }

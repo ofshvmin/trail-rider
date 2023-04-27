@@ -4,6 +4,8 @@ const Schema = mongoose.Schema
 
 const horseSchema = new Schema({
   name: String,
+  barnName: String,
+  sex: String,
   status: {
     type: String,
     enum: ['Active', 'Lame', 'Retired']

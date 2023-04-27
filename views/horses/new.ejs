@@ -8,6 +8,10 @@
   <form action="/horses" id="new-form" method="POST">
     
     <label>
+      Barn Name:
+    <input type="text" name="barnName" id="horse-input" required="true">
+    </label>
+    <label>
       Name:
     <input type="text" name="name" id="horse-input" required="true">
     </label>
@@ -20,7 +24,14 @@
       <option value="Retired">Retired</option>
     </select>
     </label>
-
+    <label>
+      Sex:
+      <select name="sex" id="horse-select">
+      <option value="Gelding" >Gelding</option>
+      <option value="Mare" >Mare</option>
+      <option value="Stallion" >Stallion</option>
+    </select>
+    </label>
     <label>
       Height:
       <input type="number" step=".1" name="height" id="horse-number">

@@ -12,8 +12,20 @@
   >
     
     <label>
-      Name:
+      Barn Name:
+    <input type="text" name="barnName" id="horse-input" required="true" value="<%= horse.barnName %>">
+    </label> 
+    <label>
+      Registered Name:
     <input type="text" name="name" id="horse-input" required="true" value="<%= horse.name %>">
+    </label>
+    <label>
+      Sex:
+      <select name="sex" id="horse-select">
+      <option value="Gelding" <%= horse.sex === 'Gelding' ? 'selected' : '' %> >Gelding</option>
+      <option value="Mare" <%= horse.sex === 'Mare' ? 'selected' : '' %>   >Mare</option>
+      <option value="Stallion" <%= horse.sex === 'Stallion' ? 'selected' : '' %> >Stallion</option>
+    </select>
     </label>
     
     <label>
@@ -26,11 +38,11 @@
     </label>
     <label>
       Height:
-      <input type="number" step=".1" name="height" id="horse-number">
+      <input type="number" step=".1" name="height" id="horse-number" value="<%= horse.height %>">
     </label>
     <label>
       Weight Limit:
-      <input type="number" name="weightLimit" id="horse-number">
+      <input type="number" name="weightLimit" id="horse-number" value="<%= horse.weightLimit %>">
     </label>
     <label>
       Lesson Horse:

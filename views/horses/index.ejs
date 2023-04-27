@@ -14,7 +14,9 @@
   <table>
     <thead>
       <tr>
-        <th>Name</th>
+        <th>Barn Name</th>
+        <th>Registered Name</th>
+        <th>Sex</th>
         <th>Status</th>
         <th>Height</th>
         <th>Weight Limit</th>
@@ -27,7 +29,9 @@
     <tbody>
       <% horses.forEach(horse => { %>
         <tr>
+          <td><%= horse.barnName %></td>
           <td><%= horse.name %></td>
+          <td><%= horse.sex %></td>
           <td><%= horse.status %></td>
           <td><%= horse.height %></td>
           <td><%= horse.weightLimit %></td>

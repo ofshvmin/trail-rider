@@ -41,7 +41,7 @@ function index(req, res) {
   .then(rides => {
     res.render('rides/index', {
       title: "All Rides",
-      rides
+      rides: rides.sort((a, b) => a.date - b.date)
     })  
   })
   .catch(err => {
@@ -105,11 +105,6 @@ function update(req, res) {
 
 
 
-  //   // console.log('REQ.BODY: ', req.params.profileId);
-  //   // console.log('REQ.USER: ', req.user.profile._id);
-  //   // console.log('USER ROLE: ', req.user.profile.role);
-
-
 function deleteRide(req, res) {
   Ride.findByIdAndDelete(req.params.rideId)
   .then(ride => {
@@ -122,7 +117,6 @@ function deleteRide(req, res) {
 }
 
 function createRider(req, res) {
-  //find the ride
   Ride.findById(req.params.rideId)
   .then(ride => {
     ride.riders.push(req.body)
@@ -135,7 +129,6 @@ function createRider(req, res) {
       res.redirect('/rides/my-rides')
     })
   })
-  //push a rider to the riders field
   .catch(err => {
     console.log(err)
     res.redirect('/rides/my-rides')
