@@ -84,17 +84,17 @@
     </label><br>
     
     <label>
-      <input type="radio" name="young" value="separate trail" <%= ride.young === "no" ? "checked" : "" %>>
+      <input type="radio" name="young" value="separate trail" <%= ride.young === "separate trail" ? "checked" : "" %>>
       We have riders 8-9 and would like to book a Trail Experience Lesson for them while the adults go out on a 1 hour trail ride.
     </label><br>
     
     <label>
-      <input type="radio" name="young" value="kids only" <%= ride.young === "no" ? "checked" : "" %>>
+      <input type="radio" name="young" value="kids only" <%= ride.young === "kids only" ? "checked" : "" %>>
       We have riders ages 8-9 and would like to book a Trail Experience Lesson for just them.
     </label><br>
     
     <label>
-      <input type="radio" name="young" value="together" <%= ride.young === "no" ? "checked" : "" %>>
+      <input type="radio" name="young" value="together" <%= ride.young === "together" ? "checked" : "" %>>
       We have riders ages 8-9 and would like to book a Trail Experience Lesson for our entire party.
     </label><br>
     
@@ -103,6 +103,7 @@
       Yes. We have a rider who is under the age of 8 who would like to take a Horse Experience Lesson while the rest of our party goes on trail. (NOTE: An adult must stay back with the youth under the age of 8)
     </label><br>
   </fieldset>
+
   </div>
 
   <button type="submit">Update Ride Details</button>
