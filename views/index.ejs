@@ -1,20 +1,87 @@
-<%- include('./partials/html-head') %>
-<%- include('./partials/nav') %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/assets/horse-head.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Schibsted+Grotesk&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+
+    <title><%= title %></title>
+
+    <% if (!user) { %>
+      <script defer src="https://accounts.google.com/gsi/client"></script>
+    <% } %>
+  </head>
+  <body>
+    <nav>
+      <h1>Trail Rider</h1>
+      <% if (user) { %>
+        <a href="/rides/new" class=<%= title === 'Request a Ride' ? 'active' : ''  %>
+          >
+          REQUEST A RIDE
+        </a>
+  
+        <a href="/rides/my-rides" class=<%= title === 'My Rides' ? 'active' : ''  %>
+          >
+          MY RIDES
+        </a>
+      <% if(user.profile.role === 'Admin' || user.profile.role === 'Staff') { %>
+        <a href="/rides" class=<%= title === 'All Rides' ? 'active' : ''  %>
+          >
+          ALL RIDES
+        </a>
+        <a href="/admin/" class=<%= title === 'Site Administration' ? 'active' : ''  %>
+          >
+          ADMIN 
+        </a>
+        <% } %>
+          
+        <a href="/auth/logout" class="right">
+          <button type="submit">Logout</button>
+        </a>
+      <% } else { %>
+       
+      <% } %>
+    </nav>
 
 <main>
-  <h1>hello, <%= user ? user.profile.name : "there stranger..." %></h1>
+  
   
   <% if (user?.profile.avatar) { %>
     <div>
-      <img
+      <!-- <img
         src="<%= user.profile.avatar %>"
         alt="<%= user.profile.name %> avatar"
-      />
+      /> -->
     </div>
     
 
   <% } else { %>
-    Log in with Google to request a ride or view and edit details of previously requests
+    
+    <div id="login-video">
+      <video playsinline autoplay muted loop>
+        <source src="/assets/vineyard.mov">
+      </video>
+        <div id="login">
+          <div 
+          id="g_id_onload"
+          data-client_id="<%= googleClientID %>"
+          data-login_uri="/auth/google"
+          data-auto_prompt="false"
+          data-prompt_parent_id="g_id_onload"
+        ></div>
+        <div 
+          class="g_id_signin right"
+          data-type="standard"
+          data-size="large"
+          data-theme="outline"
+          data-text="sign_in_with"
+          data-shape="rectangular"
+          data-logo_alignment="left"
+        ></div>
+      </div>
+    </div>
   <% } %>
 </main>
 
