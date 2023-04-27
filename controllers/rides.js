@@ -197,6 +197,26 @@ function cancel(req, res) {
   })
 }
 
+function submit(req, res) {
+  Ride.findById(req.params.rideId)
+  .then(ride => {
+    ride.status = 'submitted'
+    ride.save()
+    .then(() => {
+      res.redirect('/rides/my-rides')
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
+
 export {
   index,
   newRide as new,
@@ -208,5 +228,6 @@ export {
   createRider,
   deleteRider,
   showMyRides,
-  cancel
+  cancel,
+  submit
 }

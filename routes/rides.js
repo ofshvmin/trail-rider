@@ -27,6 +27,8 @@ router.get('/:rideId', isLoggedIn, ridesCtrl.show)
 //PATCH localhost:3000/rides/:rideId/cancel
 router.patch('/:rideId/cancel', isLoggedIn, ridesCtrl.cancel)
 
+//PATCH localhost:3000/rides/:rideId/submit
+router.patch('/:rideId/submit', isLoggedIn, ridesCtrl.submit)
 
 // POST localhost:3000/rides
 router.post('/', ridesCtrl.create)
