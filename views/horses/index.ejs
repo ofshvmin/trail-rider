@@ -16,6 +16,8 @@
       <tr>
         <th>Name</th>
         <th>Status</th>
+        <th>Height</th>
+        <th>Weight Limit</th>
         <th>Lesson Horse</th>
         <th>Trail Horse</th>
         <th></th>
@@ -26,7 +28,9 @@
       <% horses.forEach(horse => { %>
         <tr>
           <td><%= horse.name %></td>
-          <td><%= horse.status %></a></td>
+          <td><%= horse.status %></td>
+          <td><%= horse.height %></td>
+          <td><%= horse.weightLimit %></td>
           <td><%= horse.lessonHorse %></td>
           <td><%= horse.trailHorse %></td>
           <td><a href="/horses/<%= horse._id %>"><button>Edit</button></a></td>
@@ -43,6 +47,8 @@
       <% }) %>
     </tbody>
   </table>
+
+
 </main>
 
 

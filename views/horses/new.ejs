@@ -22,6 +22,14 @@
     </label>
 
     <label>
+      Height:
+      <input type="number" step=".1" name="height" id="horse-number">
+    </label>
+    <label>
+      Weight Limit:
+      <input type="number" name="weightLimit" id="horse-number">
+    </label>
+    <label>
       Lesson Horse:
     <input type="checkbox" name="lessonHorse" id="horse-checkbox">
   </label>
@@ -29,10 +37,10 @@
       Trail Horse:
     <input type="checkbox" name="trailHorse" id="horse-checkbox">
   </label>
-
     <button type="submit">Add Horse</button>
   </form>
 
+  <a href="/horses">Go Back</a>
 
 </main>
 <%- include("../partials/footer") %>

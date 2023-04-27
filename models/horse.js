@@ -10,6 +10,8 @@ const horseSchema = new Schema({
   },
     lessonHorse: Boolean,
   trailHorse: Boolean,
+  height: Number,
+  weightLimit: Number
 }, {
   timestamps: true
 })

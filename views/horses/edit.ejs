@@ -24,7 +24,14 @@
       <option value="Retired" <%= horse.status === 'Retired' ? 'selected' : '' %>>Retired</option>
     </select>
     </label>
-
+    <label>
+      Height:
+      <input type="number" step=".1" name="height" id="horse-number">
+    </label>
+    <label>
+      Weight Limit:
+      <input type="number" name="weightLimit" id="horse-number">
+    </label>
     <label>
       Lesson Horse:
     <input type="checkbox" name="lessonHorse" id="horse-checkbox" <%= horse.lessonHorse ? 'checked' : '' %>>

@@ -8,9 +8,11 @@
   <table>
     <thead>
       <tr>
+        <th>Ride</th>
         <th>Number of Riders</th>
         <th>Date</th>
         <th>Details</th>
+        <th>Cancel</th>
         <th>Delete</th>
         <th></th>
       </tr>
@@ -18,9 +20,19 @@
     <tbody>
       <% rides.forEach(ride => { %>
         <tr>
+          <td><%= ride.type %></td>
           <td><%= ride.numberOfRiders %></td>
-          <td><%= ride.date %></a></td>
+          <td><input type="date" value="<%= ride.date.toISOString().slice(0, 10) %>" disabled></td>
           <td><a href="/rides/<%= ride._id %>"><button>details</button></a></td>
+          <td>
+            <form 
+            action="/rides/<%= ride._id %>/cancel?_method=PATCH" 
+            method="POST"
+            >
+
+            <button type="submit">cancel</button>
+          </form>
+        </td>
           <td>
             <form 
             action="/rides/<%= ride._id %>?_method=DELETE" 
