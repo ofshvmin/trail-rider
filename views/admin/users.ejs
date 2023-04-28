@@ -1,32 +1,10 @@
 <%- include("../partials/html-head") %>
+<link rel="stylesheet" href="/stylesheets/rides/index.css">
 <%- include("../partials/nav") %>
 
 
 <main>
-  <h1>Site Administration</h1>
-
-
-  <a href="/horses">Horses</a>
-
-  <a href="/admin/users">Users</a>
-
-  <a href="/admin/schedule">Schedule</a>
-
-
-  <!-- name: String,
-  avatar: String,
-  role: { 
-    type: String,
-    enum: ['Staff', 'Client'],
-    default: 'Client',
-    phone: String
-}}, {
-  timestamps: true
-}) -->
-
-
-
-
+  <h1>Users</h1>
   <table>
     <thead>
       <tr>
@@ -45,17 +23,11 @@
           <td><%= user.profile.phone %></td>
           <td><%= user.profile.role %></td>
           <td><a href="/admin/users/<%= user.profile._id %>"><button>Edit</button></a></td>
-          
-
         </td>
       </tr>      
       <% }) %>
     </tbody>
   </table>
 </main>
-
-
-</main>
-
 
 <%- include("../partials/footer") %>
