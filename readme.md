@@ -4,20 +4,16 @@
 ![screenshot](./public//assets/tr-landing.png)
 ![screenshot](./public/assets/tr-rideform.png)
 
+# [Use Trail Rider Here](https://trail-rider.fly.dev/)
+
 # Background
 
-Trail Rider is a web-based platform for connecting riders and those curious about setting out an adventure with a barn that curate the experience.
-Many barn owners are in business out of a passion for horses and sharing that experience with others. Profit margins in the industry are slim and barn staff have busy lives tending to animals day and night.  Trail Rider offers an automated solution to scheduling and managing communications with visitors, simplifying the effort on behalf of barn staff and cutting down delays in communication.
-
-# Getting Started
-
-
-
-
+Trail Rider is a web-based platform for connecting vetern riders and newcomers alike with a barn that can curate the experience for them.
+Many barn owners are in business out of a passion for horses and for sharing that experience with others. Profit margins in the industry are slim and barn staff have busy lives tending to animals day and night.  Trail Rider offers an automated solution to scheduling and managing communications with visitors, simplifying the effort on behalf of barn staff and cutting down delays in communication.
 
 Planning materials can be found [here](https://trello.com/b/0rCPyo9P/trail-rider).
 
-# [Use Trail Rider Here](https://trail-rider.fly.dev/)
+
 
 # Technologies used
 * JavaScript
