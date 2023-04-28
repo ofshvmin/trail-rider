@@ -50,3 +50,36 @@ p {
 input {
   margin: 20px 0 20px 0;
 }
+
+.table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table thead th {
+  padding: 5px;
+  width: 150px;
+  border-bottom: 2px solid #424748;
+}
+
+table td {
+  padding: 10px;
+  text-align: center;
+  width: 150px;
+}
+
+#name {
+  width: 300px;
+}
+
+#submit {
+  width: 200px;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}

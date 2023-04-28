@@ -107,9 +107,9 @@
   </fieldset>
 
   </div>
-
-  <button type="submit">Update</button>
-  
+  <div class="button-container">
+    <button type="submit">Update</button>
+  </div>
 </form>
 </div>
 <h2>Rider Details</h2>
@@ -150,15 +150,15 @@
     <input type="text" name="weight" class="rider-text" required>
     </label><br>
   
-    
+<div class="button-container">
     <button type="submit">Add Rider</button>
     </form>
-    
+    </div>
 
 <div class="table">
 <table>
   <thead>
-    <th>Name</th>
+    <th id="name">Name</th>
     <th>Age</th>
     <th>Height</th>
     <th>Weight</th>
@@ -168,7 +168,7 @@
   <tbody>
     <% ride.riders.forEach(rider => { %>
       <tr>
-        <td><%= rider.name %></td>
+        <td id="name"><%= rider.name %></td>
         <td><%= rider.age %></td>
         <td><%= rider.height %></td>
         <td><%= rider.weight %></td>
@@ -187,13 +187,16 @@
 </table>
 </div>
 </div>
-<form 
-action="/rides/<%= ride._id %>/submit?_method=PATCH" 
-method="POST"
->
 
-<button id="submit" type="submit">Submit Request</button>
-</form>
+
+<div class="button-container">
+  <form 
+  action="/rides/<%= ride._id %>/submit?_method=PATCH" 
+  method="POST"
+  >
+  <button id="submit" type="submit">Submit Request</button>
+  </form>
+</div>
 
 </main>
 
