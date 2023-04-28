@@ -3,32 +3,31 @@
 <%- include("../partials/nav") %>
 
 <main id="new-ride">
+
   <h1><%= title %></h1>
     
   <h3>Contact Information</h3>
-
   <div class="category">
-<form action="/rides/new" id="new-ride" >
-  <label>
-    Name of Requestor:
-    <input type="text" name="name" id="ride-text-input" required="true" value="<%= user.profile.name %>" disabled="true">
+    <form action="/rides/new" id="new-ride" >
+    <label>
+      Name of Requestor:
+      <input type="text" name="name" id="ride-text-input" required="true" value="<%= user.profile.name %>" disabled="true">
+      </label>
+    <label>
+      Preferred E-mail:
+      <input type="text" name="email" id="ride-text-input" required="true" value="<%= user.profile.preferredEmail %>" disabled="true">
+      </label>
+    <label>
+      Phone Number:
+      <input type="tel" name="phone" id="ride-text-input" required="true" value="<%= user.profile.phone %>" placeholder="###-###-####" disabled="true">
     </label>
-  <label>
-    Preferred E-mail:
-    <input type="text" name="email" id="ride-text-input" required="true" value="<%= user.profile.preferredEmail %>" disabled="true">
-    </label>
-  <label>
-    Phone Number:
-    <input type="tel" name="phone" id="ride-text-input" required="true" value="<%= user.profile.phone %>" placeholder="###-###-####" disabled="true">
-  </label>
-  
-  <button type="submit">Edit</button>
-</form>
+    
+    <button type="submit">Edit</button>
+  </form>
 </div>
 
 <h3>Ride Details</h3>
-
-
+<div class="category">
 <form action="/rides" id="new-form" method="POST">
   <label>
     Date:
@@ -43,7 +42,26 @@
     <option value="anytime">Any Time of Day</option>
     <option value="other">Other (please specify)</option>
   </select>
-  </label><br>
+</label>
+  
+    <label>
+      Number of Riders:
+    <select name="numberOfRiders" id="rider-number-select" required="true">
+      <option value="" disabled selected="true" >Choose</option>
+      <option value="1">1 rider</option>
+      <option value="2">2 riders</option>
+      <option value="3">3 riders</option>
+      <option value="4">4 riders</option>
+      <option value="5">5 riders</option>
+      <option value="6">6 riders</option>
+      <option value="7">7 riders</option>
+      <option value="8">8 riders</option>
+      <option value="9">9 riders</option>
+      <option value="10">10 riders</option>
+      <option value="11">11 riders</option>
+      <option value="12">12 riders</option>
+    </select>
+    </label><br>
   <label>
     What type of trail ride are you looking for?
     <select name="type" id="" required>
@@ -56,25 +74,6 @@
       <option value="equitrek">Equitreks and Overnights (Novice - Master Level Riders)</option> 
     </select>
   </label> <br>
-
-  <label>
-    Number of Riders:
-  <select name="numberOfRiders" id="rider-number-select" required="true">
-    <option value="" disabled selected="true" >Choose</option>
-    <option value="1">1 rider</option>
-    <option value="2">2 riders</option>
-    <option value="3">3 riders</option>
-    <option value="4">4 riders</option>
-    <option value="5">5 riders</option>
-    <option value="6">6 riders</option>
-    <option value="7">7 riders</option>
-    <option value="8">8 riders</option>
-    <option value="9">9 riders</option>
-    <option value="10">10 riders</option>
-    <option value="11">11 riders</option>
-    <option value="12">12 riders</option>
-  </select>
-  </label><br>
 
 
   <div id="radio">
@@ -107,7 +106,8 @@
     </label><br>
   </fieldset>
   <button type="submit">Save</button>
-  </div>
+</div>  
+</div>
 
   
 </form>

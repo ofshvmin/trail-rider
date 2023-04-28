@@ -25,7 +25,9 @@ body {
 }
 
 nav {
+  position: fixed;
   height: 114px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -75,6 +77,10 @@ nav > #center {
   align-items: center;
 }
 
+main {
+  position: relative;
+  top: 114px;
+}
 
 #login-video {
   display: flex;
