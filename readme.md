@@ -1,8 +1,8 @@
 
 # Trail Rider: Find Your Place on a Horse
 
-![screenshot](/assets/tr-landing.png)
-![screenshot](/assets/tr-rideform.png)
+![screenshot](./public//assets/tr-landing.png)
+![screenshot](./public/assets/tr-rideform.png)
 
 # Background
 
