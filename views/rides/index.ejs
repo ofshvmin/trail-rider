@@ -1,5 +1,5 @@
 <%- include("../partials/html-head") %>
-<link rel="stylesheet" href="/stylesheets/rides/show.css">
+<link rel="stylesheet" href="/stylesheets/rides/index.css">
 <%- include("../partials/nav") %>
 
 
@@ -11,10 +11,10 @@
         <th>Ride</th>
         <th>Number of Riders</th>
         <th>Date</th>
+        <th>Status</th>
         <th>Details</th>
         <th>Cancel</th>
         <th>Delete</th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -23,6 +23,7 @@
           <td><%= ride.type %></td>
           <td><%= ride.numberOfRiders %></td>
           <td><input type="date" value="<%= ride.date.toISOString().slice(0, 10) %>" disabled></td>
+          <td><%= ride.status %></td>
           <td><a href="/rides/<%= ride._id %>"><button>details</button></a></td>
           <td>
             <form 
