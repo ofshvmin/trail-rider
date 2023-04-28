@@ -1,26 +1,30 @@
 
 # Trail Rider: Find Your Place on a Horse
 
-![screenshot](./assets/wordle-easter.png)
+![screenshot](/assets/tr-landing.png)
+![screenshot](/assets/tr-rideform.png)
 
 # Background
 
-Trail Rider is a web-based platform for connecting riders and those curious about riding with a barn that can take them out on trail. 
+Trail Rider is a web-based platform for connecting riders and those curious about setting out an adventure with a barn that curate the experience.
+Many barn owners are in business out of a passion for horses and sharing that experience with others. Profit margins in the industry are slim and barn staff have busy lives tending to animals day and night.  Trail Rider offers an automated solution to scheduling and managing communications with visitors, simplifying the effort on behalf of barn staff and cutting down delays in communication.
 
 # Getting Started
 
 
-https://trello.com/b/0rCPyo9P/trail-rider
 
 
-Planning materials can be found [here](./pseudo.txt).
 
-# [Play the game here](https://easter-wordle.netlify.app/)
+Planning materials can be found [here](https://trello.com/b/0rCPyo9P/trail-rider).
+
+# [Use Trail Rider Here](https://trail-rider.fly.dev/)
 
 # Technologies used
 * JavaScript
 * Node.js
 * Express
+* Mongoose
+* MongoDB
 * Google OAth
 * HTML
 * CSS
@@ -31,17 +35,16 @@ Planning materials can be found [here](./pseudo.txt).
 # Attributions
 My sincere thanks to the creators who have made their content available to be freely used by developers.
 
-Wordle: Easter Edition makes use of the font Schibsted Grotesk designed by Bakken & Bæck, Henrik Kongsvoll and made available through Google fonts.  It can be accessed at [google fonts](https://fonts.google.com/specimen/Schibsted+Grotesk?query=schibsted+grotesk).
+Trail Rider makes use of the font Poppins designed by Indian Type Foundry and made available through Google fonts.  It can be accessed at [google fonts](https://fonts.google.com/specimen/Poppins?query=poppins).
 
-Wordle: Easter Edition uses a favicon made available by Freepik in their [easter icons](https://www.flaticon.com/free-icons/easter) collection and can be found [here](https://www.flaticon.com/free-icon/easter_9870812?term=easter&page=1&position=49&origin=tag&related_id=9870812).
+Trail Rider uses a favicon made available by Freepik, which can be found [here](https://www.flaticon.com/free-icon/black-head-horse-side-view-with-horsehair_32904).
 
-Confetti was made possible by General Assembly.
+
 
 # Ice Box
-- Optimize the on-screen keyboard for mobile devices
-- Validate user guesses are actual words
-- Eliminate repetition of the same correct word
-- Animate tiles as the correct/incorrect letters are revealed
-- Animate a wiggle of the row when a user selects invalid input
-- Add themes for other holidays
-- Dark mode
+- Optimize views for mobile devices
+- Implement automated emails to staff upon new request
+- Implement automated emails to clients upon confirmation of scheduling
+- Add archive view for appointments in the past
+- Introduce automation for pre-selecting an appropriate horse for each guest based on height and weight
+- Output weekly schedule of all appointments
