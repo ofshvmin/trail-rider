@@ -7,6 +7,7 @@
     
   <h3>Contact Information</h3>
 
+  <div class="category">
 <form action="/rides/new" id="new-ride" >
   <label>
     Name of Requestor:
@@ -23,6 +24,7 @@
   
   <button type="submit">Edit</button>
 </form>
+</div>
 
 <h3>Ride Details</h3>
 
@@ -30,21 +32,22 @@
 <form action="/rides" id="new-form" method="POST">
   <label>
     Date:
-    <input type="date" name="date" id="" >
+    <input type="date" name="date" required >
   </label>
   <label>
     Time:
-  <select name="time" id="">
+  <select name="time" id="" required>
+    <option value="">Choose</option>
     <option value="morning">Morning (10am - 1pm)</option>
     <option value="afternoon">Afternoon (1pm - Sunset)</option>
     <option value="anytime">Any Time of Day</option>
     <option value="other">Other (please specify)</option>
-  
   </select>
-  </label>
+  </label><br>
   <label>
     What type of trail ride are you looking for?
-    <select name="type" id="">
+    <select name="type" id="" required>
+      <option value="">Choose</option>
       <option value="scenic">Scenic Trail Ride(Beginner-friendly)</option>
       <option value="adventure">Adventure Trail Ride (Novice and Intermediate)</option>
       <option value="vineyard">Vineyard Trail Ride (on specific dates)</option>
@@ -56,7 +59,7 @@
 
   <label>
     Number of Riders:
-  <select name="numberOfRiders" id="rider-number-select" required="true" placeholder="Choose">
+  <select name="numberOfRiders" id="rider-number-select" required="true">
     <option value="" disabled selected="true" >Choose</option>
     <option value="1">1 rider</option>
     <option value="2">2 riders</option>
@@ -76,9 +79,10 @@
 
   <div id="radio">
     <p>Are ANY riders inder the age of 10?</p>
+    <fieldset required>
     
     <label>
-      <input type="radio" name="young" value="no">
+      <input type="radio" name="young" value="no" required>
       No. All riders are over the age of 10. 
     </label><br>
     
@@ -101,9 +105,10 @@
       <input type="radio" name="young" value="separate lesson">
       Yes. We have a rider who is under the age of 8 who would like to take a Horse Experience Lesson while the rest of our party goes on trail. (NOTE: An adult must stay back with the youth under the age of 8)
     </label><br>
+  </fieldset>
+  <button type="submit">Save</button>
   </div>
 
-  <button type="submit">Save</button>
   
 </form>
 

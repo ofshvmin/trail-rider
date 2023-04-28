@@ -1,13 +1,13 @@
 
 <%- include("../partials/html-head") %>
-<link rel="stylesheet" href="/stylesheets/rides/show.css">
+<link rel="stylesheet" href="/stylesheets/rides/forms.css">
 <%- include("../partials/nav") %>
 
 <main>
   <h1><%= title %></h1>
 
   <h3>Contact Information</h3>
-
+<div class="category">
 <form action="/rides/new" id="new-ride" >
   <label>
     Name of Requestor:
@@ -24,9 +24,11 @@
   
   <button type="submit">Edit</button>
 </form>
+</div>
 
 <h3>Ride Details</h3>
 
+<div class="category">
 <form action="/rides/<%= ride._id %>?_method=PUT" id="update-form" method="POST">
   <label>
     Date:
@@ -43,18 +45,6 @@
   
   </select>
   </label>
-  <label>
-    What type of trail ride are you looking for?
-    <select name="type" id="">
-      <option value="scenic" <%= ride.type === "scenic" ? "selected" : "" %>>Scenic Trail Ride(Beginner-friendly)</option>
-      <option value="adventure" <%= ride.type === "adventure" ? "selected" : "" %>>Adventure Trail Ride (Novice and Intermediate)</option>
-      <option value="vineyard" <%= ride.type === "vineyard" ? "selected" : "" %>>Vineyard Trail Ride (on specific dates)</option>
-      <option value="moonlight" <%= ride.type === "moonlight" ? "selected" : "" %>>Moonlight Trail Ride (on specific dates)</option>
-      <option value="bachelorette" <%= ride.type === "bachelorette" ? "selected" : "" %>>Bachelor or Bachelorette Party</option>
-      <option value="equitrek" <%= ride.type === "equitrek" ? "selected" : "" %>>Equitreks and Overnights (Novice - Master Level Riders)</option> 
-    </select>
-  </label> <br>
-
   <label>
     Number of Riders:
   <select name="numberOfRiders" id="rider-number-select" required="true" placeholder="Choose">
@@ -73,6 +63,18 @@
     <option value="12" <%= ride.numberOfRiders === 12 ? "selected" : "" %>>12 riders</option>
   </select>
   </label><br>
+  <label>
+    What type of trail ride are you looking for?
+    <select name="type" id="">
+      <option value="scenic" <%= ride.type === "scenic" ? "selected" : "" %>>Scenic Trail Ride(Beginner-friendly)</option>
+      <option value="adventure" <%= ride.type === "adventure" ? "selected" : "" %>>Adventure Trail Ride (Novice and Intermediate)</option>
+      <option value="vineyard" <%= ride.type === "vineyard" ? "selected" : "" %>>Vineyard Trail Ride (on specific dates)</option>
+      <option value="moonlight" <%= ride.type === "moonlight" ? "selected" : "" %>>Moonlight Trail Ride (on specific dates)</option>
+      <option value="bachelorette" <%= ride.type === "bachelorette" ? "selected" : "" %>>Bachelor or Bachelorette Party</option>
+      <option value="equitrek" <%= ride.type === "equitrek" ? "selected" : "" %>>Equitreks and Overnights (Novice - Master Level Riders)</option> 
+    </select>
+  </label> <br>
+
   
   <div>
     <p>Are ANY riders inder the age of 10?</p>
@@ -109,9 +111,10 @@
   <button type="submit">Update Ride Details</button>
   
 </form>
-   
+</div>
 <h2>Rider Details</h2>
 
+<div class="category">
 <form 
     id=""
     action="/rides/<%= ride._id %>/riders"
@@ -121,6 +124,17 @@
       Name:
     <input type="text" name="name" class="rider-text" required>
     </label>
+    <label>
+      Skill level:
+      <select name="experience" id="experience-select">
+        <option value="">--Skill Level--</option>
+        <option value="none">None</option>
+        <option value="beginner">Beginner</option>
+        <option value="novice">Novice</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+      </select>
+    </label> <br>
     <label>
       Age:
     <input type="number" name="age" class="rider-text" required>
@@ -134,19 +148,8 @@
     <label>
       Weight:
     <input type="text" name="weight" class="rider-text" required>
-    </label>
+    </label><br>
   
-    <label>
-      Skill level:
-      <select name="experience" id="experience-select">
-        <option value="">--Skill Level--</option>
-        <option value="none">None</option>
-        <option value="beginner">Beginner</option>
-        <option value="novice">Novice</option>
-        <option value="intermediate">Intermediate</option>
-        <option value="advanced">Advanced</option>
-      </select>
-    </label>
     
     <button type="submit">Add Rider</button>
     </form>
@@ -182,7 +185,7 @@
 
   </tbody>
 </table>
-
+</div>
 <form 
 action="/rides/<%= ride._id %>/submit?_method=PATCH" 
 method="POST"
