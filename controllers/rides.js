@@ -108,7 +108,7 @@ function update(req, res) {
 function deleteRide(req, res) {
   Ride.findByIdAndDelete(req.params.rideId)
   .then(ride => {
-    res.redirect('/rides/my-rides')
+    res.redirect('/rides')
   })
   .catch(err => {
     console.log(err)
