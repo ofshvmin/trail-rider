@@ -31,7 +31,6 @@ function create(req, res) {
 }
 
 function edit(req, res) {
-  console.log(req.params.horseId);
   Horse.findById(req.params.horseId)
   .then(horse => {
     res.render('horses/edit', {

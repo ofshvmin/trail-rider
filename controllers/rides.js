@@ -6,7 +6,6 @@ function newRide(req, res) {
   User.findById(req.user._id)
   .populate('profile')
   .then(user => {
-    console.log(user);
     res.render('rides/new-1', {
       title: 'Ride Request Form',
       user
@@ -22,7 +21,6 @@ function new2(req, res) {
   User.findById(req.user._id)
   .populate('profile')
   .then(user => {
-    console.log(user);
     res.render('rides/new-2', {
       title: 'Ride Request Form',
       user
@@ -67,9 +65,6 @@ function show(req, res) {
   .populate('requestor')
   .then(ride => {
     const dt = ride.date.toISOString().slice(0,10)
-    console.log('date: ', dt);
-    
-    console.log("ride: ", ride);
     res.render('rides/show', {
       title: "Ride Detail",
       ride,

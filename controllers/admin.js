@@ -35,10 +35,6 @@ function updateProfile(req, res) {
   }
   Profile.findById(req.params.profileId)
   .then(profile => {
-    // console.log('REQ.BODY: ', req.params.profileId);
-    // console.log('REQ.USER: ', req.user.profile._id);
-    // console.log('USER ROLE: ', req.user.profile.role);
-
     if(profile._id.equals(req.user.profile._id)) {
       profile.updateOne(req.body) 
       .then(() => {

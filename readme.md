@@ -8,7 +8,7 @@
 
 # Background
 
-Trail Rider is a web-based platform for connecting vetern riders and newcomers alike with a barn that can curate the experience for them.
+Trail Rider is a web-based platform for connecting veteran riders and newcomers alike with a barn that can curate the experience for them.
 Many barn owners are in business out of a passion for horses and for sharing that experience with others. Profit margins in the industry are slim and barn staff have busy lives tending to animals day and night.  Trail Rider offers an automated solution to scheduling and managing communications with visitors, simplifying the effort on behalf of barn staff and cutting down delays in communication.
 
 Planning materials can be found [here](https://trello.com/b/0rCPyo9P/trail-rider).

@@ -40,10 +40,10 @@ router.post('/:rideId/riders', ridesCtrl.createRider)
 router.put('/:rideId', isLoggedIn, ridesCtrl.update)
 
 // DELETE localhost:3000/rides/:rideId
-router.delete('/:rideId', ridesCtrl.delete)
+router.delete('/:rideId', isLoggedIn, ridesCtrl.delete)
 
 
-router.delete('/:rideId/riders/:riderId', ridesCtrl.deleteRider)
+router.delete('/:rideId/riders/:riderId', isLoggedIn, ridesCtrl.deleteRider)
 
 
 export {
