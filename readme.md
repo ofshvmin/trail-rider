@@ -4,7 +4,7 @@
 ![screenshot](./public//assets/tr-landing.png)
 ![screenshot](./public/assets/tr-rideform.png)
 
-# [Use Trail Rider Here](https://trail-rider.fly.dev/)
+# [Use Trail Rider Here](https://trail-riders.fly.dev/)
 
 # Background
 
