@@ -1,28 +1,20 @@
-# fly.toml app configuration file generated for trail-rider-aged-log-207 on 2025-05-12T20:53:05-04:00
+# fly.toml app configuration file generated for trail-riders on 2025-05-12T21:54:06-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'trail-rider-aged-log-207'
-primary_region = 'ewr'
+app = 'trail-riders'
+primary_region = 'iad'
 
 [build]
-
-[env]
-  PORT = '8080'
 
 [http_service]
   internal_port = 3000
   force_https = true
   auto_stop_machines = 'stop'
   auto_start_machines = true
-
-[checks]
-  [checks.alive]
-    type = 'tcp'
-    interval = '15s'
-    timeout = '2s'
-    grace_period = '5s'
+  min_machines_running = 0
+  processes = ['app']
 
 [[vm]]
   memory = '1gb'
